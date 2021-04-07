@@ -6,9 +6,12 @@
   "author": "Suman Choi",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.13.12",
     "express": "^4.17.1"
   },
-  "scripts":{
-    "start": "node index.js"
+  "scripts": {
+    "start": "babel-node index.js"
   }
 }
