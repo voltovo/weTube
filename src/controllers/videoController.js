@@ -16,8 +16,7 @@ export const search = (req, res) => {
   } = req;
   res.render("search", {
     pageTitle: "Search",
-    searchingBy: searchingBy,
-    videos,
+    searchingBy,
   });
 };
 export const getUpload = (req, res) =>
