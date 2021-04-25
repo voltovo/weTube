@@ -1,5 +1,5 @@
 const path = require("path");
-const autoprefixer = require("autoprefixer");
+//const autoprefixer = require("autoprefixer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const mode = process.env.WEBPACK_ENV;
