@@ -5,7 +5,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const mode = process.env.WEBPACK_ENV;
 module.exports = {
   mode,
-  entry: path.resolve(__dirname, "assets", "js", "main.js"),
+  entry: [
+    "@babel/polyfill",
+    path.resolve(__dirname, "assets", "js", "main.js"),
+  ],
   output: {
     filename: "[name].js",
     path: path.join(__dirname, "static"),
@@ -43,4 +46,5 @@ module.exports = {
     ],
   },
   plugins: [new MiniCssExtractPlugin({ filename: "styles.css" })],
+  devtool: "source-map",
 };
