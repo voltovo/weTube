@@ -26,6 +26,8 @@ app.use(morgan("dev"));
 app.use(
   session({
     secret: process.env.COOKIE_SECRET,
+    resave: true,
+    saveUninitialized: false,
   })
 );
 app.use(passport.initialize());
