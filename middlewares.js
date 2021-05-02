@@ -17,5 +17,11 @@ export const onlyPublic = (req, res, next) => {
     next();
   }
 };
-
+export const onlyPrivate = (req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect(routes.home);
+  }
+};
 export const uploadVideo = multerVideo.single("videoFile");
