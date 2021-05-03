@@ -41,6 +41,7 @@ export const postGithubLogin = (req, res) => {
   res.send(routes.home);
 };
 export const logout = (req, res) => {
+  req.logout();
   res.redirect(routes.home);
 };
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
