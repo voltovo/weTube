@@ -61,9 +61,14 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
 export const postGithubLogin = (req, res) => {
   res.redirect(routes.home);
 };
+
 export const logout = (req, res) => {
   req.logout();
   res.redirect(routes.home);
+};
+
+export const me = (req, res) => {
+  res.render("userDetail", { pageTitle: "User Detail", user: req.user });
 };
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
 export const userDetail = (req, res) =>
