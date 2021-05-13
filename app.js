@@ -21,6 +21,7 @@ app.set("view engine", "pug");
 app.set("views", "./views");
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("static"));
+app.use("/img", express.static("img"));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
