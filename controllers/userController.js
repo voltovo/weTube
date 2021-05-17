@@ -68,7 +68,7 @@ export const kakaoLoginCallback = async (_, __, profile, cb) => {
   const {
     _json: {
       id,
-      properties: { thumbnail_image: avatarUrl, nickname: name },
+      properties: { profile_image: avatarUrl, nickname: name },
       kakao_account: { email },
     },
   } = profile;
