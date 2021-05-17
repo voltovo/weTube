@@ -102,6 +102,7 @@ export const logout = (req, res) => {
 };
 
 export const getMe = (req, res) => {
+  console.log(`user = ${req.user}, loggedUser = ${res.locals.loggedUser}`);
   res.render("userDetail", { pageTitle: "User Detail", user: req.user });
 };
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
