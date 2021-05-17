@@ -64,18 +64,32 @@ export const postGithubLogin = (req, res) => {
 
 export const kakaoLogin = passport.authenticate("kakao");
 
-export const kakaoLoginCallback = async (
-  accessToken,
-  refreshToken,
-  profile,
-  done
-) => {
+export const kakaoLoginCallback = async (_, __, profile, cb) => {
   const {
-    _json: { id },
-    properties: { profile_image: avatarUrl, nickname: name },
+    _json: {
+      id,
+      properties: { thumbnail_image: avatarUrl, nickname: name },
+      kakao_account: { email },
+    },
   } = profile;
-  console.log(`id = ${id}, avatarUrl = ${avatarUrl}, name = ${name}`);
-  console.log(accessToken, refreshToken, profile, done);
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      user.kakaoId = id;
+      user.avatarUrl = avatarUrl;
+      user.save();
+      return cb(null, user);
+    }
+    const newUser = await User.create({
+      email,
+      name,
+      kakaoId: id,
+      avatarUrl,
+    });
+    return cb(null, newUser);
+  } catch (error) {
+    return cb(error);
+  }
 };
 
 export const postKakaoLogin = (req, res) => {
