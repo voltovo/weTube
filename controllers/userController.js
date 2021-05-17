@@ -70,6 +70,11 @@ export const kakaoLoginCallback = async (
   profile,
   done
 ) => {
+  const {
+    _json: { id },
+    properties: { profile_image: avatarUrl, nickname: name },
+  } = profile;
+  console.log(`id = ${id}, avatarUrl = ${avatarUrl}, name = ${name}`);
   console.log(accessToken, refreshToken, profile, done);
 };
 
