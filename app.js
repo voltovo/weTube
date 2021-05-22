@@ -4,7 +4,6 @@ import helmet from "helmet";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import passport from "passport";
-import mongoose from "mongoose";
 import "./passport";
 import session from "express-session";
 import MongoStore from "connect-mongo";
@@ -16,7 +15,11 @@ import { localsMiddleware } from "./middlewares";
 
 const app = express();
 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 app.set("view engine", "pug");
 app.set("views", "./views");
 app.use("/uploads", express.static("uploads"));
