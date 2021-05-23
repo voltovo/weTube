@@ -80,9 +80,7 @@ function getCurrentTime() {
 }
 
 function setTotalTime() {
-  console.log("video duration = ", videoPlayer.duration);
   const totalTimeString = formatDate(videoPlayer.duration);
-  console.log("totalTimeString = ", totalTimeString);
   totalTime.innerHTML = totalTimeString;
   setInterval(getCurrentTime, 1000);
 }
@@ -91,7 +89,7 @@ function init() {
   playBtn.addEventListener("click", handlePlayClick);
   volumBtn.addEventListener("click", handleVolumeClick);
   fullscrnBtn.addEventListener("click", goFullScreen);
-  setTotalTime();
+  videoPlayer.addEventListener("loadedmetadata", setTotalTime);
 }
 
 if (videoContainer) {
