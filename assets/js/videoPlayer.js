@@ -76,7 +76,7 @@ const formatDate = (seconds) => {
 };
 
 function getCurrentTime() {
-  currentTime.innerHTML = formatDate(videoPlayer.currentTime);
+  currentTime.innerHTML = formatDate(Math.floor(videoPlayer.currentTime));
 }
 
 function setTotalTime() {
@@ -85,11 +85,17 @@ function setTotalTime() {
   setInterval(getCurrentTime, 1000);
 }
 
+function hadleEnded() {
+  videoPlayer.currentTime = 0;
+  playBtn.innerHTML = '<i class="fas fa-play"></i>';
+}
+
 function init() {
   playBtn.addEventListener("click", handlePlayClick);
   volumBtn.addEventListener("click", handleVolumeClick);
   fullscrnBtn.addEventListener("click", goFullScreen);
   videoPlayer.addEventListener("loadedmetadata", setTotalTime);
+  videoPlayer.addEventListener("ended", hadleEnded);
 }
 
 if (videoContainer) {
