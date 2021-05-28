@@ -97,7 +97,6 @@ function handleDrag(event) {
   const {
     target: { value },
   } = event;
-  console.log("volume value = ", value);
   videoPlayer.volume = value;
   if (value >= 0.6) {
     volumBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
