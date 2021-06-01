@@ -1,7 +1,7 @@
 {
   "name": "wetube",
   "version": "1.0.0",
-  "description": "Cloning Youtube with Vanilla and Nodejs",
+  "description": "The Best way to watch videos",
   "main": "index.js",
   "author": "Suman Choi",
   "license": "ISC",
@@ -51,5 +51,13 @@
     "prettier": "^2.2.1",
     "webpack": "^5.36.1",
     "webpack-cli": "^4.6.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voltovo/weTube.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voltovo/weTube/issues"
+  },
+  "homepage": "https://github.com/voltovo/weTube#readme"
 }
