@@ -4,7 +4,7 @@ let videos = [
     rating: 5,
     comments: 2,
     creatAt: "2 minutes ago",
-    views: 59,
+    views: 1,
     id: 1,
   },
   {
@@ -24,8 +24,11 @@ let videos = [
     id: 3,
   },
 ];
-export const edit = (req, res) => res.send("Edit Video", { pageTitle: "Edit" });
-export const see = (req, res) => {
+export const edit = (req, res) => {
+  return res.render("edit", { pageTitle: "Edit" });
+};
+
+export const watch = (req, res) => {
   const { id } = req.params;
   const video = videos[id - 1];
   return res.render("watch", { pageTitle: `Watching ${video.title}`, video });
