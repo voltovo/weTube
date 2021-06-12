@@ -47,3 +47,11 @@ export const trending = (req, res) => {
 };
 
 export const search = (req, res) => res.send("Search Video");
+
+export const getUpload = (req, res) => {
+  return res.render("upload", { pageTitle: "Upload Video" });
+};
+
+export const postUpload = (req, res) => {
+  return res.redirect("/");
+};
