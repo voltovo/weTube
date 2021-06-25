@@ -2,7 +2,7 @@ import Video from "../models/Video";
 
 export const home = async (req, res) => {
   try {
-    const videos = await Video.find({});
+    const videos = await Video.find({}).sort({ createdAt: "desc" });
     return res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     console.log(error);
@@ -43,7 +43,10 @@ export const watch = async (req, res) => {
   return res.render("watch", { pageTitle: video.title, video });
 };
 
-export const search = (req, res) => res.send("Search Video");
+export const search = (req, res) => {
+  const { keyword } = req.query;
+  return res.send("search", { pageTitle: "Search" });
+};
 
 export const getUpload = (req, res) => {
   return res.render("upload", { pageTitle: "Upload Video" });
