@@ -29,6 +29,7 @@ _Required Settings_
 
 - OAuth App
 - Client ID of OAuth App
+- Client Secret of OAuth App
 
 ---
 
@@ -47,16 +48,16 @@ _Required Settings_
 
 ##### parameters
 
-| name         |  type  | description                                                                                |
-| :----------- | :----: | :----------------------------------------------------------------------------------------- |
-| client_id    | string | **필수**매개변수, OAtuh app 생성 시 부여 받은 Client ID                                    |
-| client_id    | string | **필수**, OAuth 앱에 대해 GitHub에서 받은 클라이언트 암호, **비공개 유지** .env파일에 기록 |
-| code         | string | **필수**, 1단계에 대한 응답으로 받은 코드                                                  |
-| scope        | string | 공개된 public 데이터 범위를 넘어선 데이터를 얻고 싶을 때 사용, **공백**으로 구분           |
-| allow_signup | string | 인증되지 않은 사용자에게 OAuth 흐름 중에 GitHub에 등록할 수 있는 옵션 여부                 |
-| user         |        | 프로필 정보에만 읽기/쓰기 액세스 권한을 부여합니다.                                        |
-| read:user    |        | 사용자의 프로필 데이터를 읽을 수있는 액세스 권한을 부여합니다.                             |
-| user:email   |        | 사용자의 이메일 주소에 대한 읽기 액세스 권한을 부여합니다.                                 |
+| name          |  type  | description                                                                                |
+| :------------ | :----: | :----------------------------------------------------------------------------------------- |
+| client_id     | string | **필수**매개변수, OAtuh app 생성 시 부여 받은 Client ID                                    |
+| client_secret | string | **필수**, OAuth 앱에 대해 GitHub에서 받은 클라이언트 암호, **비공개 유지** .env파일에 기록 |
+| code          | string | **필수**, 1단계에 대한 응답으로 받은 코드                                                  |
+| scope         | string | 공개된 public 데이터 범위를 넘어선 데이터를 얻고 싶을 때 사용, **공백**으로 구분           |
+| allow_signup  | string | 인증되지 않은 사용자에게 OAuth 흐름 중에 GitHub에 등록할 수 있는 옵션 여부                 |
+| user          |        | 프로필 정보에만 읽기/쓰기 액세스 권한을 부여합니다.                                        |
+| read:user     |        | 사용자의 프로필 데이터를 읽을 수있는 액세스 권한을 부여합니다.                             |
+| user:email    |        | 사용자의 이메일 주소에 대한 읽기 액세스 권한을 부여합니다.                                 |
 
 #### 3. redirected back to your site by GitHub
 
