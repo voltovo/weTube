@@ -42,7 +42,7 @@ export const getLogin = (req, res) => res.render("login");
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
   const pageTitle = "login";
-  const user = await User.findOne({ username });
+  const user = await User.findOne({ username, socialOnly: false });
   if (!user) {
     return res.status(400).render("login", {
       pageTitle,
@@ -69,9 +69,8 @@ export const startGithubLogin = (req, res) => {
     scope: "read:user user:email",
   };
   const params = new URLSearchParams(config).toString();
-  console.log(params);
   const finalUrl = `${baseUrl}?${params}`;
-  console.log(finalUrl);
+
   return res.redirect(finalUrl);
 };
 
@@ -120,13 +119,10 @@ export const finishGithubLogin = async (req, res) => {
       return res.redirect("/login");
     }
 
-    const existingUser = await User.findOne({ email: emailObj.email });
-    if (existingUser) {
-      req.session.loggedIn = true;
-      req.session.user = existingUser;
-      return res.redirect("/");
-    } else {
-      const user = await User.create({
+    let user = await User.findOne({ email: emailObj.email });
+    if (!user) {
+      user = await User.create({
+        avatarUrl: userData.avatar_url,
         name: userData.name,
         username: userData.login,
         email: emailObj.email,
@@ -134,11 +130,10 @@ export const finishGithubLogin = async (req, res) => {
         location: userData.location,
         socialOnly: true,
       });
-      console.log("githubUser = ", user);
-      req.session.loggedIn = true;
-      req.session.user = user;
-      return res.redirect("/");
     }
+    req.session.loggedIn = true;
+    req.session.user = user;
+    return res.redirect("/");
   } else {
     return res.redirect("/login");
   }
@@ -146,5 +141,8 @@ export const finishGithubLogin = async (req, res) => {
 
 export const edit = (req, res) => res.send("Edit User");
 export const remove = (req, res) => res.send("Remove User");
-export const logout = (req, res) => res.send("Logout User");
+export const logout = (req, res) => {
+  req.session.destroy();
+  return res.redirect("/");
+};
 export const see = (req, res) => res.send("See User");
