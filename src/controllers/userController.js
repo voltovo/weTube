@@ -38,6 +38,7 @@ export const postJoin = async (req, res) => {
     });
   }
 };
+
 export const getLogin = (req, res) => res.render("login");
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
@@ -151,17 +152,50 @@ export const getEdit = (req, res) => {
 export const postEdit = async (req, res) => {
   const {
     session: {
-      user: { id },
+      user: { _id, email: beforeEmail, username: beforeuUername },
     },
-    body: { name, email, username, location },
+    body: { name, email: afterEmail, username: afterUsername, location },
   } = req;
-  await User.findByIdAndUpdate(id, {
-    name,
-    email,
-    username,
-    location,
-  });
-  return res.render("edit-profile");
+  console.log("session.user = ", beforeEmail);
+  console.log("req.body = ", name, afterEmail, afterUsername, location);
+
+  if (beforeEmail !== afterEmail) {
+    const existsEmail = await User.exists({
+      email: afterEmail,
+    });
+    console.log("existsEmail = ", existsEmail);
+    if (existsEmail) {
+      return res.status(400).render("edit-profile", {
+        pageTitle: "Edit Profile",
+        errorMessage: "This Email is already taken",
+      });
+    }
+  } else if (beforeuUername !== afterUsername) {
+    const existsUsername = await User.exists({
+      username: afterUsername,
+    });
+
+    console.log("existsUsername = ", existsUsername);
+    if (existsUsername) {
+      return res.status(400).render("edit-profile", {
+        pageTitle: "Edit Profile",
+        errorMessage: "This Username is already taken",
+      });
+    }
+  }
+  const updatedUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      name,
+      email: afterEmail,
+      username: afterUsername,
+      location,
+    },
+    { new: true }
+  );
+  req.session.user = updatedUser;
+
+  return res.redirect("/users/edit");
 };
 export const remove = (req, res) => res.send("Remove User");
 export const see = (req, res) => res.send("See User");
