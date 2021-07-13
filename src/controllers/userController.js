@@ -155,9 +155,9 @@ export const postEdit = async (req, res) => {
       user: { _id, email: beforeEmail, username: beforeuUername },
     },
     body: { name, email: afterEmail, username: afterUsername, location },
+    file,
   } = req;
-  console.log("session.user = ", beforeEmail);
-  console.log("req.body = ", name, afterEmail, afterUsername, location);
+  console.log("file = ", file);
 
   if (beforeEmail !== afterEmail) {
     const existsEmail = await User.exists({
