@@ -17,4 +17,4 @@
 
 ---
 
-[### Github Login recap ->](/docs/GITHUBLOGIN.md)
+#### [Github Login recap ->](/docs/GITHUBLOGIN.md)
