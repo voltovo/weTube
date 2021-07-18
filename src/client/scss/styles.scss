@@ -1,4 +1,6 @@
+@import "./variables";
+
 body {
-  background-color: red;
-  color: white;
+  background-color: $red;
+  color: $color;
 }
