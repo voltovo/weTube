@@ -1,5 +1,9 @@
-@import "./variables";
-
+//config
+@import "./config/variables";
+@import "./config/reset";
+//components
+//screens
+//defaults
 body {
   background-color: $red;
   color: $color;
