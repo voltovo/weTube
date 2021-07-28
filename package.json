@@ -29,6 +29,7 @@
     "passport-local-mongoose": "^6.1.0",
     "postcss-loader": "^5.2.0",
     "pug": "^3.0.2",
+    "regenerator-runtime": "^0.13.9",
     "sass-loader": "^11.0.1"
   },
   "scripts": {
