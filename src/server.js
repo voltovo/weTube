@@ -5,9 +5,9 @@ import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
 import MongoStore from "connect-mongo";
-import flash from "express-flash";
 import { localsMiddleware } from "./middlewares";
 import apiRouter from "./routers/apiRouter";
+import flash from "express-flash";
 
 const app = express();
 const logger = morgan("dev");
