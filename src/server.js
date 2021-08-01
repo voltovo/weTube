@@ -5,6 +5,7 @@ import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
 import MongoStore from "connect-mongo";
+import flash from "express-flash";
 import { localsMiddleware } from "./middlewares";
 import apiRouter from "./routers/apiRouter";
 
@@ -26,6 +27,7 @@ app.use(
   })
 );
 
+app.use(flash());
 app.use(localsMiddleware);
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("assets"));
