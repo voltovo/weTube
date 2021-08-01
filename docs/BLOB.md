@@ -38,7 +38,7 @@ window.URL.createBlobURL(mBlob);
 #### 3. Blob Method
 
 - slice
-  지정된 바이트 범위의 데이터를 포함하는 새로운 Blob 객체를 만드는 데 사용됩니다.
+  지정된 바이트 범위의 데이터를 포함하는 새로운 Blob 객체를 만드는 데 사용됩니다.  
   10MB 이상 사이즈가 큰 Blob 객체를 작게 조각내어 사용할 때 유용
 
 ```javaScript
