@@ -2,11 +2,16 @@ const startBtn = document.getElementById("startBtn");
 const video = document.getElementById("preview");
 
 let stream;
+let recoder;
+
+const handleDownload = () => {};
 
 const handleStop = () => {
-  startBtn.innerText = "Start Recoding";
+  startBtn.innerText = "Download Recoding";
   startBtn.removeEventListener("click", handleStop);
-  startBtn.addEventListener("click", handleStart);
+  startBtn.addEventListener("click", handleDownload);
+
+  recoder.stop();
 };
 
 const handleStart = () => {
@@ -14,18 +19,15 @@ const handleStart = () => {
   startBtn.removeEventListener("click", handleStart);
   startBtn.addEventListener("click", handleStop);
 
-  const recoder = new MediaRecorder(stream);
-  recoder.ondataavailable = (e) => {
-    console.log("recoding done");
-    console.log(e);
-    console.log(e.data);
+  recoder = new MediaRecorder(stream);
+  recoder.ondataavailable = (event) => {
+    const videoFile = URL.createObjectURL(event.data);
+    video.srcObject = null;
+    video.src = videoFile;
+    video.loop = true;
+    video.play();
   };
-  console.log(recoder);
   recoder.start();
-  console.log(recoder);
-  setTimeout(() => {
-    recoder.stop();
-  }, 10000);
 };
 
 const init = async () => {
