@@ -1,13 +1,13 @@
 import express from "express";
 import morgan from "morgan";
 import session from "express-session";
+import flash from "express-flash";
 import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
 import MongoStore from "connect-mongo";
 import { localsMiddleware } from "./middlewares";
 import apiRouter from "./routers/apiRouter";
-import flash from "express-flash";
 
 const app = express();
 const logger = morgan("dev");
@@ -22,7 +22,6 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 1800000 }, //30 min
     store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
 );
