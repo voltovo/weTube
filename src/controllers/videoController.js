@@ -160,3 +160,14 @@ export const createComment = async (req, res) => {
   await video.save();
   return res.status(201).json({ newCommentId: comment._id });
 };
+
+export const deleteComment = (req, res) => {
+  const { id } = req.params;
+  const {
+    user: { _id },
+  } = req.session;
+
+  console.log("commentId = ", id, " userId = ", _id);
+
+  return res;
+};

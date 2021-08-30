@@ -1,9 +1,8 @@
 import fetch from "node-fetch";
+import { async } from "regenerator-runtime";
 
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
-const delSpan = document.querySelector(".del__comment");
-const delLi = document.querySelector(".video__comment");
 const comments = document.querySelector(".video__comments");
 
 const addComment = (text, id) => {
@@ -24,10 +23,21 @@ const addComment = (text, id) => {
   videoComments.prepend(newComment);
 };
 
-const deleteComment = (event) => {
-  let comment = event.target;
-  console.log("comment targeted = ", comment.parentNode);
-  //console.log("comment id = ", id);
+const deleteComment = async (event) => {
+  const comment = event.target;
+  const commentId = comment.parentNode.dataset.commentid;
+
+  if (commentId === "") {
+    return;
+  }
+
+  const response = await fetch(`/api/videos/${commentId}/deleteComment`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ commentId }),
+  });
 };
 
 const handleSubmit = async (event) => {
@@ -58,10 +68,6 @@ const handleSubmit = async (event) => {
 if (form) {
   form.addEventListener("submit", handleSubmit);
 }
-
-// if (delSpan) {
-//   delSpan.addEventListener("click", deleteComment);
-// }
 
 if (comments) {
   comments.addEventListener("click", deleteComment);
