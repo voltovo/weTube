@@ -3,6 +3,8 @@ import fetch from "node-fetch";
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
 const delSpan = document.querySelector(".del__comment");
+const delLi = document.querySelector(".video__comment");
+const comments = document.querySelector(".video__comments");
 
 const addComment = (text, id) => {
   const videoComments = document.querySelector(".video__comments ul");
@@ -22,8 +24,10 @@ const addComment = (text, id) => {
   videoComments.prepend(newComment);
 };
 
-const deleteComment = (id) => {
-  console.log("comment id = ", id);
+const deleteComment = (event) => {
+  let comment = event.target;
+  console.log("comment targeted = ", comment.parentNode);
+  //console.log("comment id = ", id);
 };
 
 const handleSubmit = async (event) => {
@@ -55,6 +59,10 @@ if (form) {
   form.addEventListener("submit", handleSubmit);
 }
 
-if (delSpan) {
-  delSpan.onclick = console.log(delSpan.parentNode.dataset);
+// if (delSpan) {
+//   delSpan.addEventListener("click", deleteComment);
+// }
+
+if (comments) {
+  comments.addEventListener("click", deleteComment);
 }
