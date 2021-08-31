@@ -38,6 +38,10 @@ const deleteComment = async (event) => {
     },
     body: JSON.stringify({ commentId }),
   });
+
+  if (response.status === 201) {
+    console.log("comment delete");
+  }
 };
 
 const handleSubmit = async (event) => {
