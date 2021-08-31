@@ -40,7 +40,8 @@ const deleteComment = async (event) => {
   });
 
   if (response.status === 201) {
-    console.log("comment delete");
+    const commentParent = comment.parentNode;
+    commentParent.parentNode.removeChild(commentParent);
   }
 };
 
