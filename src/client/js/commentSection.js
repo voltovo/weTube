@@ -1,5 +1,4 @@
 import fetch from "node-fetch";
-import { async } from "regenerator-runtime";
 
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
@@ -26,6 +25,7 @@ const addComment = (text, id) => {
 const deleteComment = async (event) => {
   const comment = event.target;
   const commentId = comment.parentNode.dataset.commentid;
+  const videoId = videoContainer.dataset.videoid;
 
   if (commentId === "" || comment.className != "del__comment") {
     return;
@@ -36,7 +36,7 @@ const deleteComment = async (event) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ commentId }),
+    body: JSON.stringify({ videoId }),
   });
 
   if (response.status === 201) {
