@@ -8,7 +8,7 @@ const comments = document.querySelector(".video__comments");
 const addComment = (text, id) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
-  newComment.dataset.id = id;
+  newComment.dataset.commentid = id;
   newComment.className = "video__comment";
   const icon = document.createElement("i");
   icon.className = "fas fa-comment";
@@ -27,7 +27,7 @@ const deleteComment = async (event) => {
   const comment = event.target;
   const commentId = comment.parentNode.dataset.commentid;
 
-  if (commentId === "") {
+  if (commentId === "" || comment.className != "del__comment") {
     return;
   }
 
