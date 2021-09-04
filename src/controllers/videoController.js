@@ -177,16 +177,26 @@ export const deleteComment = async (req, res) => {
   const comment = await Comment.findById(id);
   const video = await Video.findById(videoId);
 
-  if (!comment || !vidoe) {
+  //댓글 비디오 존재여부 확인
+  if (!comment || !video) {
     return res.sendStatus(404);
   }
 
+  //댓글 작성자와 로그인유저 동일여부 확인
   if (String(comment.owner) !== user._id) {
     return res.sendStatus(403);
   }
 
+  //로그인 유저 정보 Get
   const commentUser = await User.findById(user._id);
+  //로그인 유저의 댓글 목록에서 삭제
+  commentUser.comments.splice(commentUser.comments.indexOf(id), 1);
+  //비디오의 댓글 목록에서 삭제
+  video.comments.splice(video.comments.indexOf(id), 1);
 
+  //db save
+  await video.save();
+  await commentUser.save();
   await Comment.findByIdAndDelete(id);
 
   return res.sendStatus(201);

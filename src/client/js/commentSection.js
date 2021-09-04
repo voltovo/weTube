@@ -2,23 +2,28 @@ import fetch from "node-fetch";
 
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
-const comments = document.querySelector(".video__comments");
+const delBtn = document.querySelectorAll(".fas.fa-times");
 
 const addComment = (text, id) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
   newComment.dataset.commentid = id;
   newComment.className = "video__comment";
+
   const icon = document.createElement("i");
   icon.className = "fas fa-comment";
   const span = document.createElement("span");
   span.innerText = ` ${text}`;
-  const span2 = document.createElement("span");
-  span2.className = "del__comment";
-  span2.innerText = " ❌";
+
+  const delIcon = document.createElement("i");
+  delIcon.className = "fas fa-times";
+
   newComment.appendChild(icon);
   newComment.appendChild(span);
-  newComment.appendChild(span2);
+  newComment.appendChild(delIcon);
+  //클릭 시 삭제 이벤트 생성
+  delIcon.addEventListener("click", deleteComment);
+
   videoComments.prepend(newComment);
 };
 
@@ -27,7 +32,7 @@ const deleteComment = async (event) => {
   const commentId = comment.parentNode.dataset.commentid;
   const videoId = videoContainer.dataset.videoid;
 
-  if (commentId === "" || comment.className != "del__comment") {
+  if (commentId === "") {
     return;
   }
 
@@ -73,7 +78,6 @@ const handleSubmit = async (event) => {
 if (form) {
   form.addEventListener("submit", handleSubmit);
 }
-
-if (comments) {
-  comments.addEventListener("click", deleteComment);
+if (delBtn) {
+  delBtn.forEach((del) => del.addEventListener("click", deleteComment));
 }
