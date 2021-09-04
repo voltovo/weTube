@@ -3,6 +3,7 @@ package-lock.json
 uploads
 static
 assets
+build
 
 # Logs
 logs

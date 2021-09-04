@@ -37,11 +37,14 @@
     "sass-loader": "^11.0.1"
   },
   "scripts": {
+    "start":"node build/init.js",
+    "build:server":"babel src -d build",
     "dev:server": "nodemon",
     "dev:assets": "webpack"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.16",
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.5",
     "@babel/node": "^7.13.13",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.13.15",
