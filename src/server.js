@@ -1,4 +1,6 @@
 import express from "express";
+import helmet from "helmet";
+import cors from "cors";
 import morgan from "morgan";
 import session from "express-session";
 import flash from "express-flash";
@@ -10,6 +12,8 @@ import { localsMiddleware } from "./middlewares";
 import apiRouter from "./routers/apiRouter";
 
 const app = express();
+// app.use(helmet());
+// app.use(cors());
 const logger = morgan("dev");
 
 app.set("view engine", "pug");
@@ -30,6 +34,7 @@ app.use(
 app.use((req, res, next) => {
   res.header("Cross-Origin-Embedder-Policy", "require-corp");
   res.header("Cross-Origin-Opener-Policy", "same-origin");
+  res.removeHeader("Cross-Origin-Resource-Policy");
   next();
 });
 app.use(flash());
