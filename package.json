@@ -7,7 +7,7 @@
     "url": "git+https://github.com/voltovo/weTube.git"
   },
   "scripts": {
-    "win": "node index.js"
+    "dev": "nodemon --exec babel-node index.js"
   },
   "author": "suman",
   "license": "MIT",
@@ -20,6 +20,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
-    "@babel/preset-env": "^7.19.3"
+    "@babel/node": "^7.19.1",
+    "@babel/preset-env": "^7.19.3",
+    "nodemon": "^2.0.20"
   }
 }
