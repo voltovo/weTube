@@ -1,4 +1,6 @@
-const videos = [
+import { add } from "nodemon/lib/rules";
+
+let videos = [
   {
     title: "First Video",
     rating: 5,
@@ -42,4 +44,23 @@ export const postEdit = (req, res) => {
   const { title } = req.body;
   videos[id - 1].title = title;
   return res.redirect(`/videos/${id}`);
+};
+
+export const getUpload = (req, res) => {
+  return res.render("upload", { pageTitle: "Upload Video" });
+};
+
+export const postUpload = (req, res) => {
+  // here we will add a video to he videos array.
+  const { title } = req.body;
+  const newVideo = {
+    title: title,
+    rating: 5,
+    comments: 2,
+    createdAt: "2 minutes ago",
+    views: 59,
+    id: 4,
+  };
+  videos.push(newVideo);
+  return res.redirect("/");
 };
