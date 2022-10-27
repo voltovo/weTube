@@ -59,7 +59,7 @@ export const postUpload = (req, res) => {
     comments: 2,
     createdAt: "2 minutes ago",
     views: 59,
-    id: 4,
+    id: videos.length + 1,
   };
   videos.push(newVideo);
   return res.redirect("/");
