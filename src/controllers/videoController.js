@@ -1,12 +1,13 @@
 import { add } from "nodemon/lib/rules";
 import Video from "../models/Video";
 
-export const home = (req, res) => {
-  Video.find({}, (error, videos) => {
-    console.log("error = ", error);
-    console.log("videos = ", videos);
-  });
-  return res.render("home", { pageTitle: "Home", videos: [] });
+export const home = async (req, res) => {
+  try {
+    const videos = await Video.find({});
+    return res.render("home", { pageTitle: "Home", videos });
+  } catch (error) {
+    return res.render("Server-error", { error });
+  }
 };
 export const watch = (req, res) => {
   const { id } = req.params;
