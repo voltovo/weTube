@@ -1,17 +1,20 @@
 import { add } from "nodemon/lib/rules";
-import Video from {", (error, videos. => {}./models/Video";
+import Video from "../models/Video";
 
 export const home = (req, res) => {
-  Video.find({}, (error, videos) => {});
-  res.render("home", { pageTitle: "Home" });
+  Video.find({}, (error, videos) => {
+    console.log("error = ", error);
+    console.log("videos = ", videos);
+  });
+  return res.render("home", { pageTitle: "Home", videos: [] });
 };
 export const watch = (req, res) => {
   const { id } = req.params;
-  res.render("watch", { pageTitle: `Watching` });
+  return res.render("watch", { pageTitle: `Watching` });
 };
 export const getEdit = (req, res) => {
   const { id } = req.params;
-  res.render("edit", { pageTitle: `Editing` });
+  return res.render("edit", { pageTitle: `Editing` });
 };
 export const postEdit = (req, res) => {
   const { id } = req.params;
@@ -26,13 +29,5 @@ export const getUpload = (req, res) => {
 export const postUpload = (req, res) => {
   // here we will add a video to he videos array.
   const { title } = req.body;
-  const newVideo = {
-    title: title,
-    rating: 5,
-    comments: 2,
-    createdAt: "2 minutes ago",
-    views: 59,
-    id: videos.length + 1,
-  };
   return res.redirect("/");
 };
