@@ -1,8 +1,27 @@
+import User from "../models/User";
+
 export const getJoin = (req, res) => {
   return res.render("join", { pageTitle: "Join" });
 };
-export const postJoin = (req, res) => {
-  return res.render("join", { pageTitle: "Join" });
+export const postJoin = async (req, res) => {
+  console.log(req.body);
+  const { email, username, password, name, locations } = req.body;
+  try {
+    await User.create({
+      email,
+      username,
+      password,
+      name,
+      locations,
+    });
+    return res.redirect("/login");
+  } catch (error) {
+    console.log(error);
+    return res.render("join", {
+      pageTitle: "Join",
+      errorMessage: error._message,
+    });
+  }
 };
 export const edit = (req, res) => res.send("Edit user");
 export const remove = (req, res) => res.send("Remove user");

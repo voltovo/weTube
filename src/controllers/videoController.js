@@ -1,4 +1,3 @@
-import { add } from "nodemon/lib/rules";
 import Video from "../models/Video";
 
 export const home = async (req, res) => {
