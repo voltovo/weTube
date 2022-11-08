@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02a42548-dc1c-4eec-9923-a8634152c6d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/search.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/videoController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/videoController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/videoRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/videoRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/watch.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/watch.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/globalRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/globalRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/base.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/base.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +125,7 @@
       <workItem from="1667610278961" duration="609000" />
       <workItem from="1667822616906" duration="4600000" />
       <workItem from="1667856723370" duration="3240000" />
-      <workItem from="1667910070553" duration="1879000" />
+      <workItem from="1667910070553" duration="3696000" />
     </task>
     <servers />
   </component>
