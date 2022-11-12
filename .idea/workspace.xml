@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02a42548-dc1c-4eec-9923-a8634152c6d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/middlewares.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/base.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/base.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +126,8 @@
       <workItem from="1668000320857" duration="1451000" />
       <workItem from="1668029258087" duration="3601000" />
       <workItem from="1668116374521" duration="2619000" />
-      <workItem from="1668235179441" duration="1507000" />
+      <workItem from="1668235179441" duration="1998000" />
+      <workItem from="1668262547875" duration="995000" />
     </task>
     <servers />
   </component>
