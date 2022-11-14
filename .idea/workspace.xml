@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02a42548-dc1c-4eec-9923-a8634152c6d2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/userRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/login.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +132,8 @@
       <workItem from="1668235179441" duration="1998000" />
       <workItem from="1668262547875" duration="6056000" />
       <workItem from="1668308134118" duration="1050000" />
-      <workItem from="1668428151127" duration="1646000" />
+      <workItem from="1668428151127" duration="1770000" />
+      <workItem from="1668461781808" duration="1390000" />
     </task>
     <servers />
   </component>
