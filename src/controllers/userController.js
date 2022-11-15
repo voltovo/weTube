@@ -41,14 +41,13 @@ export const postJoin = async (req, res) => {
   }
 };
 export const edit = (req, res) => res.send("Edit user");
-export const remove = (req, res) => res.send("Remove user");
 export const getLogin = (req, res) => {
   return res.render("login", { pageTitle: "Login" });
 };
 export const postLogin = async (req, res) => {
   const pageTitle = "Login";
   const { username, password } = req.body;
-  const user = await User.findOne({ username });
+  const user = await User.findOne({ username, socialOnly: false });
   // username 이 존재하지 않는다, 미 가입 회원
   if (!user) {
     return res.status(400).render("login", {
@@ -124,30 +123,40 @@ export const finishGithubLogin = async (req, res) => {
       return res.redirect("/login");
     }
 
-    const existingGithubUser = await User.findOne({ email: emailObject.email });
-    if (existingGithubUser) {
-      req.session.loggedIn = true;
-      req.session.user = existingGithubUser;
-      res.redirect("/");
-    } else {
+    let user = await User.findOne({ email: emailObject.email });
+    if (!user) {
       // create an account
-      const user = await User.create({
+      user = await User.create({
         email: emailObject.email,
+        avatarUrl: userData.avatar_url,
         username: userData.login,
         password: "",
         name: userData.name,
         locations: userData.location,
         socialOnly: true,
       });
-
-      console.log("create user = ", user);
-      req.session.loggedIn = true;
-      req.session.user = user;
-      res.redirect("/");
     }
+    req.session.loggedIn = true;
+    req.session.user = user;
+    res.redirect("/");
   } else {
     return res.redirect("/login");
   }
 };
-export const logout = (req, res) => res.send("log Out");
+export const logout = async (req, res) => {
+  // 세션에 정보가 존재하는 경우
+  if (req.session) {
+    await req.session.destroy(function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        return res.redirect("/");
+      }
+    });
+  } else {
+    console.log("세션에 정보가 없음");
+    console.log("session = ", req.session);
+    return res.redirect("/login");
+  }
+};
 export const see = (req, res) => res.send("See User");
