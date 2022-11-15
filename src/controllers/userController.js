@@ -6,7 +6,6 @@ export const getJoin = (req, res) => {
   return res.render("join", { pageTitle: "Join" });
 };
 export const postJoin = async (req, res) => {
-  console.log(req.body);
   const { email, username, password, password2, name, locations } = req.body;
   const pageTitle = "Join";
   // password가 일치한지 check
@@ -93,14 +92,28 @@ export const finishGithubLogin = async (req, res) => {
   };
   const params = new URLSearchParams(config).toString();
   const accessFinalUrl = `${accessBaseUrl}?${params}`;
-  const data = await fetch(accessFinalUrl, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-    },
-  });
-  const json = await data.json();
-  console.log("githubLogin json ", json);
+  const tokenRequest = await (
+    await fetch(accessFinalUrl, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+    })
+  ).json();
+  if ("access_token" in tokenRequest) {
+    // access api
+    const { access_token } = tokenRequest;
+    const userRequest = await (
+      await fetch("https://api.github.com/user", {
+        headers: {
+          authorization: `Bearer ${access_token}`,
+        },
+      })
+    ).json();
+    console.log("userRequest = ", userRequest);
+  } else {
+    return res.redirect("/login");
+  }
 };
 export const logout = (req, res) => res.send("log Out");
 export const see = (req, res) => res.send("See User");
