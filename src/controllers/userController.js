@@ -116,13 +116,34 @@ export const finishGithubLogin = async (req, res) => {
         headers: { authorization: `Bearer ${access_token}` },
       })
     ).json();
-    const email = emailData.find(
+    const emailObject = emailData.find(
       (email) => email.primary === true && email.verified === true
     );
 
-    console.log("email = ", email);
-    if (!email) {
+    if (!emailObject) {
       return res.redirect("/login");
+    }
+
+    const existingGithubUser = await User.findOne({ email: emailObject.email });
+    if (existingGithubUser) {
+      req.session.loggedIn = true;
+      req.session.user = existingGithubUser;
+      res.redirect("/");
+    } else {
+      // create an account
+      const user = await User.create({
+        email: emailObject.email,
+        username: userData.login,
+        password: "",
+        name: userData.name,
+        locations: userData.location,
+        socialOnly: true,
+      });
+
+      console.log("create user = ", user);
+      req.session.loggedIn = true;
+      req.session.user = user;
+      res.redirect("/");
     }
   } else {
     return res.redirect("/login");
