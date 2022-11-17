@@ -40,7 +40,12 @@ export const postJoin = async (req, res) => {
     });
   }
 };
-export const edit = (req, res) => res.send("Edit user");
+export const getEdit = (req, res) => {
+  return res.render("edit-profile", { pageTitle: "Edit" });
+};
+export const postEdit = (req, res) => {
+  return res.render("edit-profile");
+};
 export const getLogin = (req, res) => {
   return res.render("login", { pageTitle: "Login" });
 };
