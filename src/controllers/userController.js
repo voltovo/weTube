@@ -43,7 +43,29 @@ export const postJoin = async (req, res) => {
 export const getEdit = (req, res) => {
   return res.render("edit-profile", { pageTitle: "Edit" });
 };
-export const postEdit = (req, res) => {
+export const postEdit = async (req, res) => {
+  const {
+    session: {
+      user: { _id },
+    },
+    body: { name, email, username, locations },
+  } = req;
+  await User.findByIdAndUpdate(_id, {
+    name,
+    email,
+    username,
+    locations,
+  });
+  const user = await User.findOne({ _id });
+  // username 이 존재하지 않는다, 미 가입 회원
+  if (!user) {
+    return res.status(400).render("login", {
+      pageTitle,
+      errorMessage: "An account with this username does not exists.",
+    });
+  }
+  console.log("update User = ", user);
+  req.session.user = user;
   return res.render("edit-profile");
 };
 export const getLogin = (req, res) => {

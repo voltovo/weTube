@@ -7,9 +7,9 @@
     <list default="true" id="02a42548-dc1c-4eec-9923-a8634152c6d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlewares.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/rootRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/rootRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/userRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/videoRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/videoRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/base.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/base.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +136,7 @@
       <workItem from="1668461781808" duration="3270000" />
       <workItem from="1668510642846" duration="6981000" />
       <workItem from="1668547160591" duration="2748000" />
-      <workItem from="1668721001092" duration="1957000" />
+      <workItem from="1668721001092" duration="3135000" />
     </task>
     <servers />
   </component>
