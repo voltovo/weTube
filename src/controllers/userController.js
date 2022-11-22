@@ -15,9 +15,11 @@ export const postJoin = async (req, res) => {
       errorMessage: "Password confirmation deos not match.",
     });
   }
+
   // 이미 사용중인 email, username check
-  const exist = await User.exists({ $or: [{ username }, { email }] });
-  if (exist) {
+  // const exist = await User.exists({ $or: [{ username }, { email }] });
+  // const exist = existEmailAndUsername(username, email);
+  if (!existEmailAndUsername(username, email)) {
     return res.status(400).render("join", {
       pageTitle,
       errorMessage: "This email/username is already taken.",
@@ -50,23 +52,32 @@ export const postEdit = async (req, res) => {
     },
     body: { name, email, username, locations },
   } = req;
+  const sessionUsername = req.session.user.username;
+  const sessionUserEmail = req.session.user.email;
+  if (sessionUsername !== username || sessionUserEmail !== email) {
+    // 이미 사용중인 email, username check
+    if (existEmailAndUsername(username, email)) {
+      return res.status(400).render("edit-profile", {
+        pageTitle: "Edit",
+        errorMessage: "This email/username is already taken.",
+      });
+    }
+  }
+
   await User.findByIdAndUpdate(_id, {
     name,
     email,
     username,
     locations,
   });
-  const user = await User.findOne({ _id });
-  // username 이 존재하지 않는다, 미 가입 회원
-  if (!user) {
-    return res.status(400).render("login", {
-      pageTitle,
-      errorMessage: "An account with this username does not exists.",
-    });
-  }
-  console.log("update User = ", user);
-  req.session.user = user;
-  return res.render("edit-profile");
+  req.session.user = {
+    ...req.session.user,
+    name,
+    email,
+    username,
+    locations,
+  };
+  return res.redirect("/users/edit");
 };
 export const getLogin = (req, res) => {
   return res.render("login", { pageTitle: "Login" });
@@ -187,3 +198,10 @@ export const logout = async (req, res) => {
   }
 };
 export const see = (req, res) => res.send("See User");
+
+const existEmailAndUsername = async (username, email) => {
+  console.log("username = ", username, " , email = ", email);
+  const isExist = await User.exists({ $or: [{ username }, { email }] });
+  console.log("isExist = ", isExist);
+  return isExist;
+};
