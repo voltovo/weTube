@@ -43,7 +43,7 @@ export const postJoin = async (req, res) => {
   }
 };
 export const getEdit = (req, res) => {
-  return res.render("edit-profile", { pageTitle: "Edit" });
+  return res.render("users/edit-profile", { pageTitle: "Edit" });
 };
 export const postEdit = async (req, res) => {
   const {
@@ -57,7 +57,7 @@ export const postEdit = async (req, res) => {
   if (sessionUsername !== username || sessionUserEmail !== email) {
     // 이미 사용중인 email, username check
     if (existEmailAndUsername(username, email)) {
-      return res.status(400).render("edit-profile", {
+      return res.status(400).render("users/edit-profile", {
         pageTitle: "Edit",
         errorMessage: "This email/username is already taken.",
       });
@@ -196,6 +196,15 @@ export const logout = async (req, res) => {
     console.log("session = ", req.session);
     return res.redirect("/login");
   }
+};
+
+export const getChangePassword = (req, res) => {
+  return res.render("users/change-password", { pageTitle: "Change Passwrod" });
+};
+
+export const postChangePassword = (req, res) => {
+  // send notification
+  return res.redirect("/");
 };
 export const see = (req, res) => res.send("See User");
 

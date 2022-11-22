@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02a42548-dc1c-4eec-9923-a8634152c6d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/users/change-password.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/edit-profile.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/edit-profile.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/videoController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/videoController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/userRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/edit-profile.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/users/edit-profile.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/edit.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/videos/edit.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/watch.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/videos/watch.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +102,12 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/views/videos" />
+      <recent name="$PROJECT_DIR$/src/views/users" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -135,7 +147,8 @@
       <workItem from="1668510642846" duration="6981000" />
       <workItem from="1668547160591" duration="2748000" />
       <workItem from="1668721001092" duration="3208000" />
-      <workItem from="1669117606321" duration="2266000" />
+      <workItem from="1669117606321" duration="2489000" />
+      <workItem from="1669151617535" duration="1990000" />
     </task>
     <servers />
   </component>
