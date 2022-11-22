@@ -199,12 +199,40 @@ export const logout = async (req, res) => {
 };
 
 export const getChangePassword = (req, res) => {
-  return res.render("users/change-password", { pageTitle: "Change Passwrod" });
+  if (req.session.user.socialOnly === true) {
+    return res.redirect("/");
+  }
+  return res.render("users/change-password", { pageTitle: "Change Password" });
 };
 
-export const postChangePassword = (req, res) => {
+export const postChangePassword = async (req, res) => {
   // send notification
-  return res.redirect("/");
+  const {
+    session: {
+      user: { _id },
+    },
+    body: { oldPassword, newPassword, newPassword1 },
+  } = req;
+
+  const user = await User.findById(_id);
+  const ok = await bcrypt.compare(oldPassword, user.password);
+  if (!ok) {
+    return res.status(400).render("users/change-password", {
+      pageTitle: "Change Password",
+      errorMessage: "The current password is incorrect",
+    });
+  }
+  if (newPassword !== newPassword1) {
+    return res.status(400).render("users/change-password", {
+      pageTitle: "Change Password",
+      errorMessage: "The Password does not match the confirmation",
+    });
+  }
+
+  user.password = newPassword;
+  // User.js에 작성한 middleware에서 비번을 암호화 하는 로직을 사용하기 위해 save 호출
+  await user.save();
+  return res.redirect("/users/logout");
 };
 export const see = (req, res) => res.send("See User");
 
