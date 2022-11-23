@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="02a42548-dc1c-4eec-9923-a8634152c6d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/users/change-password.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/users/change-password.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlewares.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/userRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/users/edit-profile.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/users/edit-profile.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +98,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor.code.editing" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -143,7 +146,9 @@
       <workItem from="1668547160591" duration="2748000" />
       <workItem from="1668721001092" duration="3208000" />
       <workItem from="1669117606321" duration="2489000" />
-      <workItem from="1669151617535" duration="3813000" />
+      <workItem from="1669151617535" duration="4394000" />
+      <workItem from="1669156084172" duration="18000" />
+      <workItem from="1669203215224" duration="1641000" />
     </task>
     <servers />
   </component>
