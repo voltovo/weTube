@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02a42548-dc1c-4eec-9923-a8634152c6d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/users/profile.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/videoController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/videoController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlewares.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Video.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Video.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/userController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routers/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/userRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routers/videoRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/videoRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/upload.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/upload.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/videos/watch.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/videos/watch.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/base.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/base.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,8 +101,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/views/videos" />
       <recent name="$PROJECT_DIR$/src/views/users" />
+      <recent name="$PROJECT_DIR$/src/views/videos" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -150,7 +148,8 @@
       <workItem from="1669151617535" duration="4394000" />
       <workItem from="1669156084172" duration="18000" />
       <workItem from="1669203215224" duration="4039000" />
-      <workItem from="1669239834555" duration="2433000" />
+      <workItem from="1669239834555" duration="2507000" />
+      <workItem from="1669432000226" duration="2459000" />
     </task>
     <servers />
   </component>

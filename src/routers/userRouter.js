@@ -27,7 +27,9 @@ userRouter
   .get(getChangePassword)
   .post(postChangePassword);
 userRouter.get("/logout", protectorMiddleware, logout);
-userRouter.get("/:id(\\d+)", see);
+// \d+ : 숫자만 표시하는 정규식, 연습 예제에서 사용
+// userRouter.get("/:id(\\d+)", see);
+userRouter.get("/:id", see);
 userRouter.get("/github/start", publicOnlyMiddleware, startGithubLogin);
 userRouter.get("/github/finish", publicOnlyMiddleware, finishGithubLogin);
 
