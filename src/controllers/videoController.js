@@ -11,12 +11,12 @@ export const home = async (req, res) => {
 };
 export const watch = async (req, res) => {
   const { id } = req.params;
-  const video = await Video.findById(id);
-  const owner = await User.findById(video.owner);
+  const video = await Video.findById(id).populate("owner");
+  console.log("watch video = ", video);
   if (!video) {
     return res.render("404", { pageTitle: "Video not found." });
   }
-  return res.render("videos/watch", { pageTitle: video.title, video, owner });
+  return res.render("videos/watch", { pageTitle: video.title, video });
 };
 export const getEdit = async (req, res) => {
   const { id } = req.params;
@@ -49,8 +49,6 @@ export const getUpload = (req, res) => {
 };
 
 export const postUpload = async (req, res) => {
-  console.log("file url = ", req.file);
-  console.log("user path = ", req.session);
   const {
     session: {
       user: { _id },
