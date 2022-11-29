@@ -8,8 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/userController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/videoController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/videoController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/User.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/users/profile.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/users/profile.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/videos/watch.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/videos/watch.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +150,8 @@
       <workItem from="1669239834555" duration="2507000" />
       <workItem from="1669432000226" duration="2598000" />
       <workItem from="1669636464756" duration="3383000" />
-      <workItem from="1669643678445" duration="2160000" />
+      <workItem from="1669643678445" duration="2278000" />
+      <workItem from="1669719963224" duration="1142000" />
     </task>
     <servers />
   </component>
