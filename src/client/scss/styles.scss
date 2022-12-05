@@ -4,7 +4,11 @@
 
 // components
 @import "src/client/scss/components/header.scss";
+@import "src/client/scss/components/footer.scss";
+@import "src/client/scss/components/video.scss";
 // screens
+
+@import "src/client/scss/screens/home.scss";
 
 // defaults
 
@@ -17,4 +21,11 @@ body {
   font-family:Helvetica,Arial,sans-serif;
   background-color: $bg;
   color:$defaultTitle;
+}
+
+main {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 50px;
 }
