@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02a42548-dc1c-4eec-9923-a8634152c6d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/client/scss/components/forms.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client/scss/components/social-login.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/partials/social-login.pug" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.19.3.development.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/scss/screens/search.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/scss/screens/search.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/search.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/search.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/scss/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/scss/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/videoController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/videoController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/join.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/join.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/login.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +164,8 @@
       <workItem from="1670135358997" duration="8640000" />
       <workItem from="1670235015048" duration="3350000" />
       <workItem from="1670247786751" duration="2520000" />
-      <workItem from="1670275163868" duration="3150000" />
+      <workItem from="1670275163868" duration="3269000" />
+      <workItem from="1670327877060" duration="3760000" />
     </task>
     <servers />
   </component>
