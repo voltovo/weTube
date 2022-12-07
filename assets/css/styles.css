@@ -85,6 +85,11 @@ header .header__btn {
   padding: 5px 10px;
   border-radius: 10px;
 }
+header .header__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
 
 footer {
   text-align: center;
@@ -122,6 +127,20 @@ footer {
   display: grid;
   gap: 50px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 40px;
+}
+.auth-switch a {
+  text-decoration: underline;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 
 form {
@@ -204,6 +223,36 @@ input[type=submit] {
   background-color: rgba(0, 0, 0, 0.3);
   text-align: center;
   cursor: pointer;
+}
+
+.profile__data {
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.profile__data img {
+  margin-bottom: 10px;
+}
+.profile__data h3 {
+  font-size: 18px;
+}
+
+.edit-profile__form label {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.edit-profile__password {
+  margin-top: 50px;
+  text-align: center;
+}
+.edit-profile__password a {
+  text-decoration: underline;
 }
 
 a {
