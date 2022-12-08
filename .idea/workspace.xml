@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02a42548-dc1c-4eec-9923-a8634152c6d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/client/js/videoPlayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/partials/header.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/header.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/users/profile.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/users/profile.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/base.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/base.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/videos/watch.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/videos/watch.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +163,7 @@
       <workItem from="1670275163868" duration="3269000" />
       <workItem from="1670327877060" duration="3857000" />
       <workItem from="1670448283273" duration="3690000" />
-      <workItem from="1670505519361" duration="663000" />
+      <workItem from="1670505519361" duration="1749000" />
     </task>
     <servers />
   </component>
