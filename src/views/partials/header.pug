@@ -15,10 +15,10 @@ header
                     a(href="/users/logout") LogOut
                 li
                     a(href=`/users/${loggedInUser._id}`)
-                        if loggedInUser.avatarUrl === ""
+                        if loggedInUser.avatarUrl === undefined
                             span 😀
                         else
-                            img(src="/" + loggedInUser.avatarUrl).header__avatar
+                            img(src=loggedInUser.avatarUrl).header__avatar
             else
                 li
                     a(href="/login") Login
