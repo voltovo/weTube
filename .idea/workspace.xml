@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="02a42548-dc1c-4eec-9923-a8634152c6d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/js/videoPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/js/videoPlayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/scss/components/forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/scss/components/forms.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/videos/watch.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/videos/watch.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +158,8 @@
       <workItem from="1670275163868" duration="3269000" />
       <workItem from="1670327877060" duration="3857000" />
       <workItem from="1670448283273" duration="3690000" />
-      <workItem from="1670505519361" duration="3167000" />
+      <workItem from="1670505519361" duration="3234000" />
+      <workItem from="1670586733523" duration="1183000" />
     </task>
     <servers />
   </component>
