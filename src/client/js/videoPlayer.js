@@ -17,15 +17,23 @@ video.volume = globalVolume;
 
 const handlePlayClick = (e) => {
   if (video.paused) {
-    video.play();
+    // video.play();
+    handlePlay();
   } else {
-    video.pause();
+    // video.pause();
+    handlePause();
   }
-  playBtn.innerText = video.paused ? "Play" : "Pause";
+  // playBtn.innerText = video.paused ? "Play" : "Pause";
 };
 
-const handlePause = () => (playBtn.innerText = "Play");
-const handlePlay = () => (playBtn.innerText = "Paused");
+const handlePause = () => {
+  video.pause();
+  playBtn.innerText = "Play";
+};
+const handlePlay = () => {
+  video.play();
+  playBtn.innerText = "Pause";
+};
 
 const handleMute = (e) => {
   if (video.muted) {
@@ -100,6 +108,13 @@ const handleMouseLeave = () => {
   controlsTimeout = setTimeout(hideControls, 3000);
 };
 
+const handlePlayWithSpacebar = (event) => {
+  if (event.keyCode === 32) {
+    event.preventDefault();
+    handlePlayClick();
+  }
+};
+
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("change", handleVolumeChange);
@@ -109,3 +124,5 @@ timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullScreen);
 video.addEventListener("mousemove", handleMouseMove);
 video.addEventListener("mouseleave", handleMouseLeave);
+video.addEventListener("click", handlePlayClick);
+document.addEventListener("keydown", handlePlayWithSpacebar);
