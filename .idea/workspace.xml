@@ -7,7 +7,6 @@
     <list default="true" id="02a42548-dc1c-4eec-9923-a8634152c6d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/js/videoPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/js/videoPlayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/videos/watch.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/videos/watch.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +159,8 @@
       <workItem from="1670327877060" duration="3857000" />
       <workItem from="1670448283273" duration="3690000" />
       <workItem from="1670505519361" duration="3234000" />
-      <workItem from="1670586733523" duration="5782000" />
+      <workItem from="1670586733523" duration="5857000" />
+      <workItem from="1670646433720" duration="1237000" />
     </task>
     <servers />
   </component>

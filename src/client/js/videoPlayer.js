@@ -43,23 +43,29 @@ const handleVolumeChange = (event) => {
   video.volume = value;
 };
 
+const formatTime = (seconds) => {
+  return new Date(seconds * 1000).toISOString().substring(14, 19);
+};
+
 const handleLoadedMetadata = () => {
-  const minutes = Math.floor(video.duration / 60);
-  let seconds = Math.floor(video.duration - minutes * 60);
-  seconds = seconds < 10 ? "0" + seconds : seconds;
-  totalTime.innerText = minutes + ":" + seconds;
+  // const minutes = Math.floor(video.duration / 60);
+  // let seconds = Math.floor(video.duration - minutes * 60);
+  // seconds = seconds < 10 ? "0" + seconds : seconds;
+  // totalTime.innerText = minutes + ":" + seconds;
+  totalTime.innerText = formatTime(Math.floor(video.duration));
 };
 
 const handleTimeUpdate = () => {
-  const videoPlayTime = Math.floor(video.currentTime);
-  let currentMinutes = Math.floor(videoPlayTime / 60);
-  let currentSeconds = videoPlayTime;
-  if (currentMinutes > 0) {
-    currentSeconds = currentSeconds - currentMinutes * 60;
-  }
-  currentMinutes = currentMinutes < 10 ? "0" + currentMinutes : currentMinutes;
-  currentSeconds = currentSeconds < 10 ? "0" + currentSeconds : currentSeconds;
-  currentTime.innerText = currentMinutes + ":" + currentSeconds;
+  // const videoPlayTime = Math.floor(video.currentTime);
+  // let currentMinutes = Math.floor(videoPlayTime / 60);
+  // let currentSeconds = videoPlayTime;
+  // if (currentMinutes > 0) {
+  //   currentSeconds = currentSeconds - currentMinutes * 60;
+  // }
+  // currentMinutes = currentMinutes < 10 ? "0" + currentMinutes : currentMinutes;
+  // currentSeconds = currentSeconds < 10 ? "0" + currentSeconds : currentSeconds;
+  // currentTime.innerText = currentMinutes + ":" + currentSeconds;
+  currentTime.innerText = formatTime(Math.floor(video.currentTime));
 };
 
 playBtn.addEventListener("click", handlePlayClick);
