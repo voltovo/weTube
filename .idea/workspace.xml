@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02a42548-dc1c-4eec-9923-a8634152c6d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/client/scss/components/video-player.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routers/apiRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/js/videoPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/js/videoPlayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/scss/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/scss/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/videoController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/videoController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/videos/watch.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/videos/watch.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +165,8 @@
       <workItem from="1670505519361" duration="3234000" />
       <workItem from="1670586733523" duration="5857000" />
       <workItem from="1670646433720" duration="7404000" />
-      <workItem from="1670725689388" duration="849000" />
+      <workItem from="1670725689388" duration="1104000" />
+      <workItem from="1670938346562" duration="2680000" />
     </task>
     <servers />
   </component>
