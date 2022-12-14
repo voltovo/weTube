@@ -249,6 +249,10 @@ input[type=submit] {
   font-size: 20px;
 }
 
+#preview {
+  transform: rotateY(180deg);
+}
+
 .search__form {
   margin-bottom: 60px;
   display: flex;
