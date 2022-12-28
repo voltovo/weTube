@@ -1,4 +1,4 @@
-const { createFFmpeg, fetchFile } = require("@ffmpeg/ffmpeg");
+import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
 const startBtn = document.getElementById("startBtn");
 const video = document.getElementById("preview");
 
@@ -29,9 +29,15 @@ const handlDownload = async () => {
   ffmpeg.FS("writeFile", "recording.webm", await fetchFile(videoFile));
   // 만들어진 파일을 mp4파일로 변환
   await ffmpeg.run("-i", "recording.webm", "-r", "60", "recording.mp4");
+
+  const mp4File = ffmpeg.FS("readFile", "recording.mp4");
+  // binary data를 사용하기 위해 buffer
+  const mp4Blob = new Blob([mp4File.buffer], { type: "video/mp4" });
+  const mp4Url = URL.createObjectURL(mp4Blob);
+
   const a = document.createElement("a");
-  a.href = videoFile;
-  a.download = "MyRecording.webm";
+  a.href = mp4Url;
+  a.download = "MyRecording.mp4";
   document.body.appendChild(a);
   a.click();
 };
