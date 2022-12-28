@@ -1,3 +1,4 @@
+const { createFFmpeg, fetchFile } = require("@ffmpeg/ffmpeg");
 const startBtn = document.getElementById("startBtn");
 const video = document.getElementById("preview");
 
@@ -19,8 +20,15 @@ const videoInit = async () => {
   video.play();
 };
 /** 비디오 다운로드 */
-const handlDownload = () => {
-  console.log("video download");
+const handlDownload = async () => {
+  /** ffmpeg 선언 */
+  const ffmpeg = createFFmpeg({ log: true });
+  // 사용자 브라우저가 작동하는데 무거울 수도 있으니 기다려줘야 되서 await
+  await ffmpeg.load();
+  // 바이너리 데이터로 파일 만들기
+  ffmpeg.FS("writeFile", "recording.webm", await fetchFile(videoFile));
+  // 만들어진 파일을 mp4파일로 변환
+  await ffmpeg.run("-i", "recording.webm", "-r", "60", "recording.mp4");
   const a = document.createElement("a");
   a.href = videoFile;
   a.download = "MyRecording.webm";
