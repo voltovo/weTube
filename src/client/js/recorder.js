@@ -57,6 +57,16 @@ const handlDownload = async () => {
   thumbA.download = "MyThumbnail.jpg";
   document.body.appendChild(thumbA);
   thumbA.click();
+
+  // 속도 향상을 위해 사용한 파일을 unlink
+  ffmpeg.FS("unlink", "recording.webm");
+  ffmpeg.FS("unlink", "recording.mp4");
+  ffmpeg.FS("unlink", "thumbnail.jpg");
+
+  // 속도 향상을 위해 사용한 파일을 URL remove
+  URL.revokeObjectURL(videoFile);
+  URL.revokeObjectURL(mp4Url);
+  URL.revokeObjectURL(thumbUrl);
 };
 /** 비디오 녹화 종료 */
 const handleStop = () => {
