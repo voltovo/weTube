@@ -29,9 +29,8 @@ const downloadFile = (fileUrl, fileName) => {
 const videoInit = async () => {
   stream = await navigator.mediaDevices.getUserMedia({
     audio: false,
-    video: { width: { min: 640 }, height: { min: 360 } },
+    video: { width: { min: 1024 }, height: { min: 576 } },
   });
-  console.log("stream = ", stream);
   video.srcObject = stream;
   video.play();
 };
@@ -101,9 +100,9 @@ const handleStop = () => {
 
 /** 비디오 녹화 시작 */
 const handleStart = () => {
-  startBtn.innerText = "Stop Recording";
+  startBtn.innerText = "Recording";
+  startBtn.disabled = true;
   startBtn.removeEventListener("click", handleStart);
-  startBtn.addEventListener("click", handleStop);
   recorder = new MediaRecorder(stream);
   recorder.ondataavailable = (event) => {
     videoFile = URL.createObjectURL(event.data);
@@ -111,8 +110,14 @@ const handleStart = () => {
     video.src = videoFile;
     video.loop = true;
     video.play();
+    startBtn.innerText = "Download";
+    startBtn.disabled = false;
+    startBtn.addEventListener("click", handlDownload);
   };
   recorder.start();
+  setTimeout(() => {
+    recorder.stop();
+  }, 5000);
 };
 
 videoInit();
