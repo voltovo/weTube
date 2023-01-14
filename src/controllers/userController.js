@@ -109,6 +109,7 @@ export const postLogin = async (req, res) => {
 
   req.session.loggedIn = true;
   req.session.user = user;
+  req.flash("info", "welcome");
   res.redirect("/");
 };
 
@@ -180,6 +181,7 @@ export const finishGithubLogin = async (req, res) => {
     }
     req.session.loggedIn = true;
     req.session.user = user;
+    req.flash("info", "welcome");
     res.redirect("/");
   } else {
     return res.redirect("/login");
@@ -196,8 +198,6 @@ export const logout = async (req, res) => {
       }
     });
   } else {
-    console.log("세션에 정보가 없음");
-    console.log("session = ", req.session);
     return res.redirect("/login");
   }
 };
