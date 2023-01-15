@@ -119,7 +119,6 @@ const handlePlayWithSpacebar = (event) => {
 
 const handleEnded = () => {
   const { videoid } = videoContainer.dataset;
-
   console.log(`call api view ${videoid}`);
   fetch(`/api/videos/${videoid}/view`, { method: "POST" });
 };

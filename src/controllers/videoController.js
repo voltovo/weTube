@@ -145,3 +145,12 @@ export const registerView = async (req, res) => {
   await video.save();
   return res.sendStatus(200);
 };
+
+/*
+ * 비디오 코멘트 생성
+ **/
+export const createComment = async (req, res) => {
+  console.log("params = ", req.params);
+  console.log("comment req = ", req.body.text);
+  return res.end();
+};

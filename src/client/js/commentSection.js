@@ -1,13 +1,24 @@
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
-const textares = form.querySelector("textarea");
-const btn = form.querySelector("button");
 
 const handleSubmit = (event) => {
   event.preventDefault();
-  const text = textares.value;
+  const textarea = form.querySelector("textarea");
+  const text = textarea.value;
   console.log("text = ", text);
-  console.log("videoid = ", videoContainer.dataset.videoid);
+  const videoId = videoContainer.dataset.videoid;
+  if (text === "") {
+    return;
+  }
+  fetch(`/api/videos/${videoId}/comment`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify({ text }),
+  });
 };
 
-btn.addEventListener("click", handleSubmit);
+if (form) {
+  form.addEventListener("submit", handleSubmit);
+}
