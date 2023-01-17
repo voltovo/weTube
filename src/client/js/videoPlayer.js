@@ -111,7 +111,8 @@ const handleMouseLeave = () => {
 };
 
 const handlePlayWithSpacebar = (event) => {
-  if (event.keyCode === 32) {
+  const focusId = document.activeElement.id;
+  if (event.keyCode === 32 && focusId !== "commentTextarea") {
     event.preventDefault();
     handlePlayClick();
   }
