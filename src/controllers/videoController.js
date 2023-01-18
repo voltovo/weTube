@@ -14,9 +14,8 @@ export const home = async (req, res) => {
 };
 export const watch = async (req, res) => {
   const { id } = req.params;
-  const video = await Video.findById(id).populate("owner");
+  const video = await Video.findById(id).populate("owner").populate("comments");
   console.log("watch video = ", video);
-  console.log("loggin user = ", req.session.user);
   if (!video) {
     return res.render("404", { pageTitle: "Video not found." });
   }
@@ -169,5 +168,8 @@ export const createComment = async (req, res) => {
     video: videoId,
   });
 
+  // 해당 비디오의 댓글 배열에 추가
+  video.comments.push(comment._id);
+  video.save();
   return res.sendStatus(201);
 };
