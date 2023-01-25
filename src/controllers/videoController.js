@@ -173,3 +173,32 @@ export const createComment = async (req, res) => {
   video.save();
   return res.status(201).json({ newCommentId: comment._id });
 };
+
+/*
+ * 비디오 코멘트 삭제
+ * */
+export const deleteComment = async (req, res) => {
+  const commentId = req.params.id;
+
+  const comment = await Comment.findById(commentId);
+  const video = await Video.findById(comment.video);
+
+  if (!video) {
+    return res.sendStatus(404);
+  }
+
+  console.log("comment = ", comment);
+  const videoCommentArray = video.comments;
+  const comments = videoCommentArray.filter((element) => {
+    const commentObjId = element._id;
+    return !commentObjId.equals(commentId);
+  });
+  console.log("newVideoComments = ", comments);
+  // 비디오 comments 배열 적용
+  video.comments = comments;
+  video.save();
+  // 코멘트 삭제
+  await Comment.deleteOne({ _id: commentId });
+
+  return res.sendStatus(200);
+};

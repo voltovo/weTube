@@ -1,6 +1,6 @@
 const videoContainer = document.getElementById("videoContainer");
 const form = document.getElementById("commentForm");
-
+const deleteBtns = document.querySelectorAll(".delete__comment");
 const addComment = (text, commentId) => {
   const videoComments = document.querySelector(".video__comments ul");
 
@@ -48,6 +48,33 @@ const handleSubmit = async (event) => {
   }
 };
 
+/*
+ * 화면에 그린 댓글 지우기
+ * */
+const deleteCommentNode = (li) => {
+  const ul = li.parentNode;
+  ul.removeChild(li);
+};
+
+const handleComment = async (event) => {
+  const li = event.target.parentNode;
+
+  const commentId = li.dataset.commentid;
+  await fetch(`/api/comments/${commentId}/delete`, {
+    method: "DELETE",
+  }).then((response) => {
+    if (response.status === 200) {
+      deleteCommentNode(li);
+    }
+  });
+};
+
 if (form) {
   form.addEventListener("submit", handleSubmit);
+}
+
+if (deleteBtns) {
+  deleteBtns.forEach((deleteBtn) =>
+    deleteBtn.addEventListener("click", handleComment)
+  );
 }
