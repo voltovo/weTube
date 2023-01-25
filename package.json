@@ -33,7 +33,8 @@
     "regenerator-runtime": "^0.13.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
     "@babel/node": "^7.19.1",
     "@babel/preset-env": "^7.19.3",
     "babel-loader": "^9.1.0",
