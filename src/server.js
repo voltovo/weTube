@@ -31,11 +31,9 @@ app.use(flash());
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("assets"));
 app.use((req, res, next) => {
-  res.header("Cross-Origin-Embedder-Policy", "require-corp");
+  res.header("Cross-Origin-Embedder-Policy", "credentialless");
   res.header("Cross-Origin-Opener-Policy", "same-origin");
-  req.sessionStore.all((error, sessions) => {
-    next();
-  });
+  next();
 });
 app.use(localsMiddleware);
 app.use("/", rootRouter);

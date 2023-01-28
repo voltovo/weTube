@@ -1,6 +1,7 @@
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const aws = require("aws-sdk");
+const path = require("path");
 
 /*
  * aws 자격 증명
@@ -18,6 +19,12 @@ const s3 = new aws.S3({
 const multerUploader = multerS3({
   s3: s3,
   bucket: "sutube",
+  contentType: multerS3.AUTO_CONTENT_TYPE,
+  acl: "public-read",
+  key: function (req, file, cb) {
+    let extension = path.extname(file.originalname);
+    cb(null, Date.now().toString() + extension);
+  },
 });
 
 export const localsMiddleware = (req, res, next) => {
