@@ -67,8 +67,10 @@ export const postEdit = async (req, res) => {
     }
   }
   console.log("post edit file = ", file);
+  const isheroku = res.locals.isHeroku;
+
   await User.findByIdAndUpdate(_id, {
-    avatarUrl: file ? file.location : avatarUrl,
+    avatarUrl: file ? (isheroku ? file.location : "/" + file.path) : avatarUrl,
     name,
     email,
     username,
