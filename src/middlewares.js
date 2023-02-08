@@ -16,7 +16,7 @@ const s3 = new aws.S3({
  * 프로젝트 접속 상태 체크 heroku ? local?
  * */
 const isHeroku = process.env.NODE_ENV === "production";
-
+console.log("isHeroku = ", isHeroku);
 /*
  * s3 이미지 업로드 multer
  * */
