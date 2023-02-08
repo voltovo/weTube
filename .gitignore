@@ -4,3 +4,6 @@
 /assets
 /.idea
 /build
+.dockerignore
+fly.toml
+Dockerfile
