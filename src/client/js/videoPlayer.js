@@ -64,7 +64,9 @@ const formatTime = (seconds) => {
 };
 
 const handleLoadedMetadata = () => {
+  console.log("비디오 시간 = ", video.duration);
   totalTime.innerText = formatTime(Math.floor(video.duration));
+  console.log("비디오 토탈 시간 = ", formatTime(Math.floor(video.duration)));
   timeline.max = Math.floor(video.duration);
 };
 
@@ -127,10 +129,19 @@ const handleEnded = () => {
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("change", handleVolumeChange);
-video.addEventListener("loadeddata", handleLoadedMetadata);
+isVideoLoaded = setInterval(function () {
+  console.log("video loaded = ", video.duration);
+  if (video.duration) {
+    video.addEventListener("canplay", handleLoadedMetadata);
+    clearInterval(isVideoLoaded);
+  }
+}, 1000);
+
+// video.addEventListener("canplay", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("click", handlePlayClick);
 video.addEventListener("ended", handleEnded);
+
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullScreen);
 videoContainer.addEventListener("mousemove", handleMouseMove);
