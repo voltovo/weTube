@@ -15,8 +15,8 @@ const s3 = new aws.S3({
 /*
  * 프로젝트 접속 상태 체크 heroku ? local?
  * */
-const isHeroku = process.env.NODE_ENV === "production";
-console.log("isHeroku = ", isHeroku);
+const isDeployed = process.env.NODE_ENV === "production";
+console.log("isDeployed = ", isDeployed);
 /*
  * s3 이미지 업로드 multer
  * */
@@ -49,7 +49,7 @@ export const localsMiddleware = (req, res, next) => {
   res.locals.loggedIn = Boolean(req.session.loggedIn);
   res.locals.siteName = "Wetube";
   res.locals.loggedInUser = req.session.user;
-  res.locals.isHeroku = isHeroku;
+  res.locals.isDeployed = isDeployed;
   next();
 };
 
@@ -74,10 +74,10 @@ export const publicOnlyMiddleware = (req, res, next) => {
 export const avatarUpload = multer({
   dest: "uploads/avatars",
   limits: { filesize: 3000000 },
-  storage: isHeroku ? s3ImageUploader : undefined,
+  storage: isDeployed ? s3ImageUploader : undefined,
 });
 export const videoUpload = multer({
   dest: "uploads/videos",
   limits: { filesize: 10000000 },
-  storage: isHeroku ? s3VideoUploader : undefined,
+  storage: isDeployed ? s3VideoUploader : undefined,
 });
