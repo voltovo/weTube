@@ -7,6 +7,7 @@ export const home = async (req, res) => {
     const videos = await Video.find({})
       .sort({ createdAt: "desc" })
       .populate("owner");
+    console.log("home_videos = ", videos);
     return res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     return res.render("Server-error", { error });
