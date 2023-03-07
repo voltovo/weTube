@@ -131,6 +131,24 @@ export const startGithubLogin = (req, res) => {
   return res.redirect(finalUrl);
 };
 
+// kakao login
+export const startKakaoLogin = (req, res) => {
+  const baseUrl = "https://kauth.kakao.com/oauth/authorize";
+  const config = {
+    client_id: process.env.KAKAO_ID,
+    redirect_uri: "http://localhost:4000/users/kakao/finish",
+    response_type: "code",
+  };
+  const params = new URLSearchParams(config).toString();
+  const finalUrl = `${baseUrl}?${params}`;
+  return res.redirect(finalUrl);
+};
+
+// kakako login callback
+export const finishKakaoLogin = (req, res) => {
+  console.log("kakao login callback req = ", req);
+};
+
 export const finishGithubLogin = async (req, res) => {
   const accessBaseUrl = "https://github.com/login/oauth/access_token";
   const config = {
