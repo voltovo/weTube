@@ -145,8 +145,42 @@ export const startKakaoLogin = (req, res) => {
 };
 
 // kakako login callback
-export const finishKakaoLogin = (req, res) => {
-  console.log("kakao login callback req = ", req);
+export const finishKakaoLogin = async (req, res) => {
+  // kakao 로그인 후 사용자 정보를 받기 위해서 token을 요청
+  const requestToken = "https://kauth.kakao.com/oauth/token";
+  const config = {
+    client_id: process.env.KAKAO_ID,
+    client_secret: process.env.KAKAO_SECRET,
+    redirect_uri: "http://localhost:4000/users/kakao/finish",
+    grant_type: "authorization_code",
+    code: req.query.code,
+  };
+  const params = new URLSearchParams(config).toString();
+  const accessTokenUrl = `${requestToken}?${params}`;
+  const tokenRequest = await (
+    await fetch(accessTokenUrl, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
+      },
+    })
+  ).json();
+
+  // token을 이용해서 사용자 정보를 받아옴
+  if ("access_token" in tokenRequest) {
+    const { access_token } = tokenRequest;
+    const apiUrl = "https://kapi.kakao.com/v2/user/me";
+    const userData = await (
+      await fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      })
+    ).json();
+    console.log("userData = ", userData);
+  }
+  return res.send(tokenRequest);
 };
 
 export const finishGithubLogin = async (req, res) => {
